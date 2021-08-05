@@ -11,6 +11,13 @@
   </head>
 
   <body>
+  <br>
+    <% if current_user.present? %>
+    <%= link_to "Profile", user_path(current_user) %>
+    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    <br>
+    <% end %>
+
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
