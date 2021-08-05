@@ -1,4 +1,4 @@
 <h1>Edit Post</h1>
-<%= render 'form', post: @post %>
-<%= link_to 'Show', @post  %>
-<%= link_to 'Back', posts_path %>
+<%= render 'form', user: @user, post: @post %>
+<%= link_to 'Show', user_post_path(@user, @post) %>
+<%= link_to 'Back', user_posts_path(@user) %>
