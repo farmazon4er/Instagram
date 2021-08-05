@@ -1,0 +1,32 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: Instagram_development
+  username: farmazon4er
+  password: '12345'
+  host: localhost
+  port: 5432
+
+test:
+  <<: *default
+  database: Instagram_test
+  username: farmazon4er
+  password: '12345'
+
+#   production:
+#     url: <%= ENV['MY_APP_DATABASE_URL'] %>
+#
+# Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
+# for a full overview on how database connection configuration can be specified.
+#
+production:
+  <<: *default
+  database: Instagram_production
+  username: Instagram
+  password: <%= ENV['INSTAGRAM_DATABASE_PASSWORD'] %>
