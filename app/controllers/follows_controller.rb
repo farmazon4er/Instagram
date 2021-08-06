@@ -7,6 +7,10 @@ class FollowsController < ApplicationController
 
     Follow.create(follower: follower_user, following: following_user)
 
-    redirect_to user_followers_path(current_user)
+    redirect_to user_followings_path(current_user)
+  end
+
+  def destroy
+
   end
 end

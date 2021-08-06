@@ -3,7 +3,7 @@
 <ul>
   <% @followers.each do |follower| %>
   <li>
-    <%= link_to(follower.email, user_path(follower)) %>
+ Name: <%= follower.name %> | Bio: <%= follower.bio %> | <%= link_to(follower.email, user_path(follower)) %>
   </li>
   <% end %>
 </ul>

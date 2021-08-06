@@ -1,5 +1,8 @@
 <h1>User info</h1>
+<% if current_user == @user %>
 <%= link_to "Edit", edit_user_path(@user) %>
+<% end %>
+
 <br>
 Email: <%= @user.email %>
 <br>
@@ -9,8 +12,7 @@ Bio: <%= @user.bio %>
 <br>
 <%= link_to "Posts", user_posts_path(@user) %>
 <br>
-<%= link_to "Users list", users_path %>
-<br>
+
 <%= link_to "Followers", user_followers_path(@user) %>
 <%= link_to "Following", user_followings_path(@user) %>
 
