@@ -29,9 +29,12 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bootstrap-sass'
 gem 'devise'
-gem 'shrine', "~> 3.0"
+gem 'pundit'
+gem 'shrine', '~> 3.0'
+
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
+
 
 
 group :development, :test do
