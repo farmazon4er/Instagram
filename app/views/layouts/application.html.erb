@@ -11,17 +11,17 @@
   </head>
 
   <body>
-  <br>
-    <%= link_to "Users list", users_path %>
+
   <br>
     <% if current_user.present? %>
-    <%= link_to "Profile", user_path(current_user) %>
+    <%= link_to("Profile " + current_user.name, user_path(current_user)) %>
     <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
     <% else %>
     <%= link_to "Sign_in", new_user_session_path %>
     <br>
     <% end %>
-
+    <br><br>
+    <%= link_to "Users list", users_path %>
     <%= yield %>
 
   </body>
