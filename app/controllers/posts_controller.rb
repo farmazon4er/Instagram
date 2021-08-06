@@ -26,10 +26,12 @@ class PostsController < ApplicationController
 
   def edit
     @post = @user.posts.find(params[:id])
+    authorize @post
   end
 
   def update
     @post = @user.posts.find(params[:id])
+    authorize @post
     if @post.update(post_params)
       redirect_to user_post_path(@user, @post), flash: { success: "Post was update"}
     else
@@ -39,6 +41,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = @user.posts.find(params[:id])
+    authorize @post
     @post.destroy
     redirect_to action: :index
   end
