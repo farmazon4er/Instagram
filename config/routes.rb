@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :followings, only: :index
   end
 
-  resources :follows, only: [:create]
+  resources :follows, only: [:create, :destroy]
 
   devise_scope :user do
     get "/" => "devise/sessions#new"
