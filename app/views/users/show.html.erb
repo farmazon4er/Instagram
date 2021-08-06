@@ -10,6 +10,10 @@ Bio: <%= @user.bio %>
 <%= link_to "Posts", user_posts_path(@user) %>
 <br>
 <%= link_to "Users list", users_path %>
-<% if current_user.present? && current_user != @user%>
+<br>
+<%= link_to "Followers", user_followers_path(@user) %>
+<%= link_to "Following", user_followings_path(@user) %>
+
+<% if current_user.present? && current_user != @user %>
 <%= link_to("Follow", follows_path(following_id: @user.id), method: :post) %>
 <% end %>
