@@ -12,7 +12,10 @@ Bio: <%= @user.bio %>
 <br>
 <%= link_to "Posts", user_posts_path(@user) %>
 <br>
-
+<% if current_user == @user %>
+  <%= link_to "Feed posts", feed_posts_path(@user) %>
+<% end %>
+<br>
 <%= link_to "Followers", user_followers_path(@user) %>
 <%= link_to "Following", user_followings_path(@user) %>
 <br>

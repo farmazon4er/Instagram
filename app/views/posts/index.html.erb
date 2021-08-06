@@ -1,4 +1,4 @@
-<p id='notice'><%= notice %></p>
+
 <h1>Posts</h1>
 
 <table>
@@ -16,11 +16,12 @@
     <td><%= post.title %></td>
     <td><%= post.body %></td>
     <td><%= image_tag post.image_url %></td>
-    <td><%= link_to "Show", user_post_path(@user, post) %></td>
+
     <% if current_user == @user %>
+      <td><%= link_to "Show", user_post_path(@user, post) %></td>
     <td><%= link_to "Edit", edit_user_post_path(@user, post) %></td>
     <td><%= link_to "Destroy", user_post_path(@user, post), method: :delete, data: { confirm: "Are you sure?" }  %></td>
-      <% end %>
+    <% end %>
   </tr>
   <% end %>
   </tbody>
