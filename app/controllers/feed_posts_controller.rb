@@ -1,5 +1,6 @@
 class FeedPostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :load_users_feed
 
 
   def index
@@ -8,6 +9,10 @@ class FeedPostsController < ApplicationController
     else
       Post.none
     end
-    render "posts/index"
+    render "feed_posts/index"
+  end
+
+  def load_users_feed
+    @users = User.where(id: current_user.followings)
   end
 end
