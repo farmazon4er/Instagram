@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users, only: [:show, :edit, :update, :index] do
-    resources :posts
+    resources :posts do
+      resources :comments
+    end
     resources :followers, only: :index
     resources :followings, only: :index
   end

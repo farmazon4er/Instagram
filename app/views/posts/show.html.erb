@@ -12,6 +12,10 @@
   <strong>Photo:</strong>
   <%= image_tag @post.image_url %>
 </p>
+<%= link_to "Create comment", new_user_post_comment_path(@user, @post) %>
+<br>
+<%= link_to "View comments", user_post_comments_path(@user, @post)  %>
+<br>
 <% if policy(@post).update? %>
 <%= link_to "Edit", edit_user_post_path(current_user, @post) %>
 <% end %>
