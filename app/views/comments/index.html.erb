@@ -1,5 +1,5 @@
 <h1> Comments </h1>
 <% @comments.each do |comment| %>
-  <p> User: <%= comment.user.name %>  | Comment: <%= comment.comment_text %>  </p>
+  <p> User: <%= link_to(comment.user.name, user_path(comment.user)) %>  | Comment: <%= comment.comment_text %>  </p>
 <% end %>
 <%= link_to 'back', user_post_path(@user, @post) %>
