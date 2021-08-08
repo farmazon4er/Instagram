@@ -61,6 +61,9 @@
     <orderEntry type="library" scope="PROVIDED" name="down (v5.2.3, RVM: ruby-2.7.2 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.10.0, RVM: ruby-2.7.2 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="execjs (v2.8.1, RVM: ruby-2.7.2 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="factory_bot (v6.2.0, RVM: ruby-2.7.2 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="factory_bot_rails (v6.2.0, RVM: ruby-2.7.2 [global]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ffaker (v2.18.0, RVM: ruby-2.7.2 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.15.3, RVM: ruby-2.7.2 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v0.5.2, RVM: ruby-2.7.2 [global]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.8.10, RVM: ruby-2.7.2 [global]) [gem]" level="application" />
