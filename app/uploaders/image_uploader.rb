@@ -6,6 +6,7 @@ class ImageUploader < Shrine
   Attacher.default_url do |**options|
     "/placeholders/missing.jpg"
   end
+
 end
 
 
