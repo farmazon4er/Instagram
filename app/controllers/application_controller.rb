@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
     user_posts_path(user)
   end
 
-
-
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :bio])
   end
