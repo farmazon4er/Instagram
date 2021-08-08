@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :index] do
     resources :posts do
       resources :comments
+      resources :likes, only: [:create, :destroy]
     end
     resources :followers, only: :index
     resources :followings, only: :index

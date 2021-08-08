@@ -12,9 +12,15 @@
   <strong>Photo:</strong>
   <%= image_tag @post.image_url %>
 </p>
-
+<% if Like.find_by(user: current_user, post: @post).present? %>
+  <%= link_to "Unlike", user_post_like_path(@user, @post), method: :delete %>
+  <% else %>
+<%= link_to "Like", user_post_likes_path(@user, @post), method: :post %>
+  <% end %>
+<br>
+<%= "Number of likes: #{@post.likes.count}" %>
+<br>
 <%= link_to "Create comment", new_user_post_comment_path(@user, @post) %>
-
 <br>
 <%= link_to "View comments", user_post_comments_path(@user, @post)  %>
 <br>
