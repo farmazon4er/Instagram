@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
   before_action :load_user
   before_action :load_post
 
@@ -21,6 +21,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    @comment = @post.comments.find(params[:id])
+    @comment.destroy
+    redirect_to action: :index
+  end
 
   private
 
