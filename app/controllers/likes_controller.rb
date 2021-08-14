@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!, only: [:create, :destroy]
   before_action :load_user
   before_action :load_post
 
@@ -12,6 +12,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
+
     Like.find_by(user: current_user, post: @post).destroy
     redirect_to user_post_path(@user, @post), flash: { success: "Like was delete" }
   end
