@@ -38,6 +38,7 @@ RSpec.describe PostsController, type: :controller do
       let!(:post) { create :post }
       it { expect { subject }.to raise_error(ActiveRecord::RecordNotFound) }
     end
+
   end
 
   describe '#new' do
@@ -78,6 +79,7 @@ RSpec.describe PostsController, type: :controller do
       it { is_expected.to render_template :new }
       it { expect { subject}.not_to change { Post.count } }
     end
+
   end
 
   describe '#edit' do
