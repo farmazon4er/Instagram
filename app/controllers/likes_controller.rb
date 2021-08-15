@@ -12,9 +12,11 @@ class LikesController < ApplicationController
   end
 
   def destroy
-
-    Like.find_by(user: current_user, post: @post).destroy
-    redirect_to user_post_path(@user, @post), flash: { success: "Like was delete" }
+    like = current_user.likes.find_by(post: @post)
+      if like.present?
+        like.destroy
+        redirect_to user_post_path(@user, @post), flash: { success: "Like was delete" }
+      end
   end
 
   private
