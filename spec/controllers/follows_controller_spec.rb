@@ -20,7 +20,7 @@ RSpec.describe FollowsController, type: :controller do
 
   describe '#destroy' do
     let!(:following_user) { create :user }
-    let(:params) { { following_id: following_user.id } }
+    let(:params) { { id: following_user.id, following_id: following_user.id } }
 
     before { post :create, params: params }
 
@@ -30,7 +30,7 @@ RSpec.describe FollowsController, type: :controller do
       expect { subject }.to change { Follow.count }.by(-1)
     end
 
-    it { is_expected.to redirect_to(user_followings_path(assigns(:user))) }
+    it { is_expected.to redirect_to(user_followings_path(assigns(:current_user))) }
   end
 
 end
