@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe LikesController, type: :controller do
   let(:user) { create :user }
   let(:post) { create :post }
-  let(:params) { {user_id: user.id, post_id: post.id } }
+  let(:params) { { user_id: user.id, post_id: post.id } }
 
   before { sign_in user }
 
