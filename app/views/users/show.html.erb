@@ -10,7 +10,7 @@ Name: <%= @user.name %>
 <br>
 Bio: <%= @user.bio %>
 <br>
-<%= link_to "Posts", user_posts_path(@user) %>
+<%= link_to "Your Posts", user_posts_path(@user) %>
 <br>
 <% if current_user == @user %>
   <%= link_to "Feed posts", feed_posts_path(@user) %>

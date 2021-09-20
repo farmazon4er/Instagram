@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link data-turbolinks-track="true" href="/assets/application.css" media="all" rel="stylesheet" />
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -15,16 +16,9 @@
   <br>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-    <% if current_user.present? %>
-    <%= link_to("Profile " + current_user.name, user_path(current_user)) %>
-    <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    <% else %>
-    <%= link_to "Sign_in", new_user_session_path %>
-    <br>
-    <% end %>
-    <br>
-    <%= link_to "Users list", users_path %>
+  <%= render "layouts/header" %>
+<div class="container">
     <%= yield %>
-
+</div>
   </body>
 </html>
