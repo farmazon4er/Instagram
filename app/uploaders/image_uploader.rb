@@ -3,7 +3,7 @@ class ImageUploader < Shrine
   plugin :validation_helpers
 
   Attacher.default_url do |**options|
-    "/placeholders/missing.jpg"
+    "public/placeholders/missing.jpg"
   end
 
   Attacher.validate do
