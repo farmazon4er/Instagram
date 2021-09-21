@@ -5,6 +5,7 @@
     %nav
       %ul.nav.navbar-nav.navbar-right
         - if current_user.present?
+          %li= link_to "New post", new_user_post_path(current_user), class: "btn btn-lg btn-primary"
           %li= link_to "Profile " + current_user.name, user_path(current_user), class: "btn btn-lg btn-primary"
           %li= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-lg btn-primary"
           %li= link_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-lg btn-primary"

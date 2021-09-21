@@ -1,32 +1,39 @@
-<h1>User info</h1>
-<% if current_user == @user %>
-<%= link_to "Edit user info", edit_user_path(@user) %>
-<% end %>
-Avatar
-<br>
-<%= image_tag @user.image_url %>
-<br>
-Email: <%= @user.email %>
-<br>
-Name: <%= @user.name %>
-<br>
-Bio: <%= @user.bio %>
-<br>
-<%= link_to "Your Posts", user_posts_path(@user) %>
-<br>
-<%= link_to "New post", new_user_post_path(current_user)  %>
-<br>
-<% if current_user == @user %>
-  <%= link_to "Feed posts", feed_posts_path(@user) %>
-<% end %>
-<br>
-<%= link_to "Followers", user_followers_path(@user) %>
-<%= link_to "Following", user_followings_path(@user) %>
-<br>
-<% if current_user.present? && current_user != @user %>
-  <% if current_user.followings.include?(@user) %>
-    <%= link_to("Unfollow", follow_path(following_id: @user.id), method: :delete) %>
+<h1><%= @user.name %></h1>
+
+<div class="row">
+  <div class="col-md-4">
+    Avatar
+    <br>
+    <%= image_tag @user.image_url %>
+  </div>
+  <div class="col-md-4">
+    <h2>User info</h2>
+    <br>
+    Email: <%= @user.email %>
+    <br>
+    Name: <%= @user.name %>
+    <br>
+    Bio: <%= @user.bio %>
+
+  </div>
+  <div class="col-md-4">
+    <br>
+    <%= link_to "Posts: #{@user.posts.size}", user_posts_path(@user) %>
+    <br>
+    <% if current_user == @user %>
+      <%= link_to "Feed posts", feed_posts_path(@user) %>
+    <% end %>
+    <br>
+    <%= link_to "Followers: #{@user.followers.size}", user_followers_path(@user) %>
+    <br>
+    <%= link_to "Following: #{@user.followings.size}", user_followings_path(@user) %>
+    <br>
+    <% if current_user.present? && current_user != @user %>
+      <% if current_user.followings.include?(@user) %>
+        <%= link_to("Unfollow", follow_path(following_id: @user.id), method: :delete) %>
       <% else %>
-    <%= link_to("Follow", follows_path(following_id: @user.id), method: :post) %>
-<% end %>
-<% end %>
+        <%= link_to("Follow", follows_path(following_id: @user.id), method: :post) %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
