@@ -40,19 +40,22 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
-
+/* user profile */
 .avatar {
   margin: 1px auto 0px;
-  width: 100%;
-  height: 100%;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
   overflow: hidden;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .avatar-box {
 
   height: 300px;
 }
+
+
 /* logo */
 #logo {
   float: left;
@@ -70,7 +73,7 @@ p {
 }
 
 /* devise */
-.devise-login, .user-edit {
+.devise-login, .user-edit, .new-post {
   text-align: center;
   display: block;
   margin-left: auto;

@@ -1,19 +1,15 @@
-<h1><%= @user.name %></h1>
-
 <div class="row">
   <div class="col-md-4 avatar-box">
-    Avatar
-
-    <div class="avatar"><%= image_tag @user.image_url %></div>
+    <div class="avatar"><%= image_tag @user.image_url(:small) %></div>
   </div>
   <div class="col-md-4">
-    <h2>User info</h2>
+    <h4>User info</h4>
     <br>
-    Email: <%= @user.email %>
+    Email: <strong><%= @user.email %></strong>
     <br>
-    Name: <%= @user.name %>
+    Name: <strong><%= @user.name %></strong>
     <br>
-    Bio: <%= @user.bio %>
+    Bio: <strong><%= @user.bio %></strong>
 
   </div>
   <div class="col-md-4">
