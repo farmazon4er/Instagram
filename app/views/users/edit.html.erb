@@ -1,3 +1,4 @@
+<div class="user-edit">
 <h1>Edit user info</h1>
 <%= form_with(model: @user, local: true) do |form| %>
   <% if @user.errors.any? %>
@@ -18,8 +19,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :bio %>
-    <%= form.text_area :bio %>
+    <%= form.label :bio  %>
+    <%= form.text_area :bio  %>
   </div>
 
   <div class="field">
@@ -27,8 +28,9 @@
     <%= form.hidden_field :image, value: @user.cached_image_data %>
     <%= form.file_field :image %>
   </div>
-
+<br>
     <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+</div>
