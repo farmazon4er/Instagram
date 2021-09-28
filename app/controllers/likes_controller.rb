@@ -7,7 +7,7 @@ class LikesController < ApplicationController
     @like = @post.likes.new(like_params)
     @like.user = current_user
     if @like.save
-      redirect_to user_post_path(@user, @post), flash: { success: "Like was add" }
+            redirect_to user_post_path(@user, @post), flash: { success: "Like was add" }
     end
   end
 
@@ -15,7 +15,7 @@ class LikesController < ApplicationController
     like = current_user.likes.find_by(post: @post)
       if like.present?
         like.destroy
-        redirect_to user_post_path(@user, @post), flash: { success: "Like was delete" }
+                redirect_to user_post_path(@user, @post), flash: { success: "Like was delete" }
       end
   end
 

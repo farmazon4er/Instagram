@@ -43,7 +43,7 @@ class PostsController < ApplicationController
     @post = @user.posts.find(params[:id])
     authorize @post
     @post.destroy
-    redirect_to action: :index
+    redirect_to user_path(@user)
   end
 
   private

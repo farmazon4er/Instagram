@@ -17,6 +17,9 @@ textarea {
 .center h1 {
   margin-bottom: 10px;
 }
+.row {
+  width: 100%;
+}
 
 /* правила для текста */
 h1, h2, h3, h4, h5, h6 {
@@ -51,8 +54,7 @@ p {
 }
 
 .avatar-box {
-
-  height: 300px;
+  height: auto;
 }
 
 
@@ -87,4 +89,22 @@ textarea {
   font-size: inherit;
   line-height: inherit;
   margin: auto;
+}
+
+/* header */
+
+
+/* post */
+.content {
+  display: block;
+  margin: auto;
+  text-align: center;
+
+  width: 500px;
+  padding-bottom: 30px;
+
+}
+
+.post-photo {
+  margin-bottom: 30px;
 }

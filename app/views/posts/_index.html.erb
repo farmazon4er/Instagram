@@ -1,0 +1,24 @@
+<div class="container my-5">
+ <div class="row">
+  <% @posts.each do |post| %>
+    <div class="col-md-4">
+      <h2><%= post.title %></h2>
+    <%= image_tag post.image_url(:medium) %>
+    <p><%= link_to(post.user.name, user_path(post.user)) %></p>
+    <p><%= "Body: #{post.body}" %></p>
+    <p><%= "Like: #{post.likes.count}"  %>  <% if Like.find_by(user: current_user, post: post).present? %>
+        <%= link_to "Unlike", user_post_like_path(@user, post), method: :delete %>
+      <% else %>
+        <%= link_to "Like", user_post_likes_path(@user, post), method: :post %>
+      <% end %></p>
+
+
+    <%= link_to "Show", user_post_path(@user, post) %>
+
+
+    </div>
+  <% end %>
+
+
+</div>
+</div>
