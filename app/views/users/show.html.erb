@@ -1,6 +1,8 @@
 <div class="row">
   <div class="col-md-4 avatar-box">
-    <div class="avatar"><%= image_tag @user.image_url(:small) %></div>
+    <div class="avatar">
+        <%= image_tag @user.image_url(:small) %>
+    </div>
   </div>
   <div class="col-md-4">
     <h4>User info</h4>
@@ -14,7 +16,7 @@
   </div>
   <div class="col-md-4">
     <br>
-    <%= link_to "Posts: #{@user.posts.size}", user_posts_path(@user) %>
+    <%= link_to "Posts: #{@user.posts.size}", user_path(@user) %>
     <br>
     <% if current_user == @user %>
       <%= link_to "Feed posts", feed_posts_path(@user) %>
@@ -33,3 +35,6 @@
     <% end %>
   </div>
 </div>
+
+<h1><%= "#{@user.name} posts" %></h1>
+<%= render "posts/index" %>

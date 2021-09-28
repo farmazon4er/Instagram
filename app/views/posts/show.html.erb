@@ -27,6 +27,7 @@
 <% if current_user == @user %>
 <% if policy(@post).update? %>
 <%= link_to "Edit", edit_user_post_path(current_user, @post) %>
+<%= link_to "Delete post", user_post_path(current_user, @post), method: :delete %>
 <% end %>
 <% end %>
 <%= link_to "Back", user_posts_path(@user) %>

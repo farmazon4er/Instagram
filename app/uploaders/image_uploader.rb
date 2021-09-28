@@ -7,7 +7,8 @@ class ImageUploader < Shrine
 
 
   Attacher.default_url do |**options|
-    "/placeholders/missing.jpg"
+    "/placeholders/avatar.jpg"
+
   end
 
   Attacher.validate do
@@ -19,7 +20,7 @@ class ImageUploader < Shrine
 
     {
       large:  magick.resize_to_limit!(800, 800),
-      medium: magick.resize_to_limit!(500, 500),
+      medium: magick.resize_to_limit!(350, 350),
       small:  magick.resize_to_limit!(150, 150),
     }
   end
