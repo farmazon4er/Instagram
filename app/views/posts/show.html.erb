@@ -1,33 +1,30 @@
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<div class="container center">
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
+<h1>  <%= @post.title %> </h1>
 
-<p>
-  <strong>Photo:</strong>
-  <%= image_tag @post.image_url %>
-</p>
-<% if Like.find_by(user: current_user, post: @post).present? %>
+<%= image_tag @post.image_url(:large) %>
+  <p><%= @post.body %></p>
+  <p>    <%= "Number of likes: #{@post.likes.count}" %>
+    <button type="button" class="btn btn-outline-secondary">
+  <% if Like.find_by(user: current_user, post: @post).present? %>
   <%= link_to "Unlike", user_post_like_path(@user, @post), method: :delete %>
   <% else %>
 <%= link_to "Like", user_post_likes_path(@user, @post), method: :post %>
   <% end %>
-<br>
-<%= "Number of likes: #{@post.likes.count}" %>
-<br>
-<%= link_to "Create comment", new_user_post_comment_path(@user, @post) %>
-<br>
-<%= link_to "View comments", user_post_comments_path(@user, @post)  %>
-<br>
-<% if current_user == @user %>
-<% if policy(@post).update? %>
-<%= link_to "Edit", edit_user_post_path(current_user, @post) %>
-<%= link_to "Delete post", user_post_path(current_user, @post), method: :delete %>
-<% end %>
-<% end %>
-<%= link_to "Back", user_posts_path(@user) %>
+  </button>
+    <% if current_user == @user %>
+      <% if policy(@post).update? %>
+        <button type="button" class="btn btn-outline-secondary">
+          <%= link_to "Edit", edit_user_post_path(current_user, @post) %>
+        </button>
+        <button type="button" class="btn btn-outline-danger">
+          <%= link_to "Delete post", user_post_path(current_user, @post), method: :delete,
+                      data: { confirm: 'Are you sure?' } %>
+        </button></p>
+      <% end %>
+    <% end %>
+
+<%= render 'comments/index' %>
+<%= render 'comments/form', user: @user, post: @post, comment: @comment %>
+
+</div>

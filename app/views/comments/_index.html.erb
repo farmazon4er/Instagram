@@ -1,0 +1,12 @@
+<h2> Comments </h2>
+<% @comments.each do |comment| %>
+  <p><%= link_to(comment.user.name, user_path(comment.user)) %> : <%= comment.comment_text %>
+  <% if current_user == comment.user %>
+      <button type="button" class="btn btn-outline-secondary">
+        <%= link_to "Delete comment", user_post_comment_path(comment.user, comment.post, comment.id), method: :delete,
+                    data: { confirm: 'Are you sure?' } %>
+      </button>
+      </p>
+      <% end %>
+
+<% end %>

@@ -8,6 +8,12 @@ class PostsController < ApplicationController
 
   def show
     @post = @user.posts.find(params[:id])
+    if @post.comments.present?
+      @comments = @post.comments
+    else
+      @comments = Comment.none
+    end
+    @comment = Comment.new
   end
 
   def new
