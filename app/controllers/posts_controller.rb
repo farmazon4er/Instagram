@@ -3,16 +3,11 @@ class PostsController < ApplicationController
   before_action :load_user
 
   def index
-    @posts = @user.posts
   end
 
   def show
     @post = @user.posts.find(params[:id])
-    if @post.comments.present?
-      @comments = @post.comments
-    else
-      @comments = Comment.none
-    end
+    @comments = @post.comments
     @comment = Comment.new
   end
 

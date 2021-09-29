@@ -4,25 +4,12 @@ require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
   let(:user) { create :user }
-  let(:post) { create :post }
+  let(:post) { create :post, user: user }
   let(:params) { { user_id: user, post_id: post } }
 
   before { sign_in user }
 
-  describe '#index' do
-    subject { get :index, params: params }
-
-    let!(:comment) { create :comment, user: user, post: post }
-
-    it 'assign @comments' do
-      subject
-      expect(assigns(:comments)).to eq([comment])
-    end
-
-    it { is_expected.to render_template('index') }
-  end
-
-  describe '#new' do
+   describe '#new' do
     subject { get :new, params: params }
 
     context 'when user signed in' do
@@ -73,7 +60,7 @@ RSpec.describe CommentsController, type: :controller do
       expect { subject }.to change { Comment.count }.by(-1)
     end
 
-    it { is_expected.to redirect_to(user_post_comments_path(assigns(:user), assigns(:post))) }
+    it { is_expected.to redirect_to(user_post_path(assigns(:user), assigns(:post))) }
   end
 
 end

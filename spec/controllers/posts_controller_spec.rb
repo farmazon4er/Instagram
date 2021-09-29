@@ -8,19 +8,6 @@ RSpec.describe PostsController, type: :controller do
 
   before { sign_in user }
 
-  describe '#index' do
-    subject { get :index, params: params}
-
-    let!(:post) { create :post, user: user }
-
-    it 'assign @posts' do
-      subject
-      expect(assigns(:posts)).to eq([post])
-    end
-
-    it { is_expected.to render_template('index') }
-  end
-
   describe '#show' do
     let(:params) { { user_id: user.id, id: post } }
     subject { get :show, params: params}
@@ -30,6 +17,12 @@ RSpec.describe PostsController, type: :controller do
     it 'assigns @post' do
       subject
       expect(assigns(:post)).to eq(post)
+    end
+
+    let(:comment) { create(:comment, user: user, post: post) }
+    it 'assign @comments' do
+      subject
+      expect(assigns(:comments)).to eq([comment])
     end
 
     it { is_expected.to render_template(:show) }

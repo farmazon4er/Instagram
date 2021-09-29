@@ -14,6 +14,12 @@ RSpec.describe UsersController, type: :controller do
 
   describe '#show' do
     subject { get :show, params: params }
+    let(:post) { create :post, user: user }
+    it 'assign @posts' do
+      subject
+      expect(assigns(:posts)).to eq([post])
+    end
+
     it { is_expected.to render_template(:show) }
   end
 

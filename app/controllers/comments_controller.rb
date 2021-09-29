@@ -3,8 +3,6 @@ class CommentsController < ApplicationController
   before_action :load_user
   before_action :load_post
 
-  def index
-  end
 
   def new
     @comment = Comment.new
@@ -21,9 +19,11 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    if @post.comments.find_by(id: params[:id]).present?
       @comment = @post.comments.find(params[:id])
-      @comment.destroy if @comment.present?
+      @comment.destroy
       redirect_to user_post_path(@post.user, @post)
+    end
   end
 
   private
