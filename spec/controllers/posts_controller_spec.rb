@@ -125,7 +125,7 @@ RSpec.describe PostsController, type: :controller do
       expect { subject }.to change { Post.count }.by(-1)
     end
 
-    it { is_expected.to redirect_to(user_posts_path(assigns(:user))) }
+    it { is_expected.to redirect_to(user_path(assigns(:user))) }
   end
 
 end
