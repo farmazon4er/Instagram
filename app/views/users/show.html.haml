@@ -1,0 +1,33 @@
+.row
+  .col-md-4.avatar-box
+    .avatar
+      = image_tag @user.image_url(:small)
+  .col-md-4
+    %h4 User info
+    %p
+      Name:
+      %strong= @user.name
+    = succeed "Bio:" do
+      %p
+    %strong= @user.bio
+    = succeed "Email:" do
+      %p
+    %strong= @user.email
+  .col-md-4
+    %br/
+    = link_to "Posts: #{@user.posts.size}", user_path(@user)
+    %br/
+    - if current_user == @user
+      = link_to "Feed posts", feed_posts_path(@user)
+    %br/
+    = link_to "Followers: #{@user.followers.size}", user_followers_path(@user)
+    %br/
+    = link_to "Following: #{@user.followings.size}", user_followings_path(@user)
+    %br/
+    - if current_user.present? && current_user != @user
+      - if current_user.followings.include?(@user)
+        = link_to("Unfollow", follow_path(following_id: @user.id), method: :delete)
+      - else
+        = link_to("Follow", follows_path(following_id: @user.id), method: :post)
+%h1= "#{@user.name} posts"
+= render "posts/index"

@@ -1,0 +1,21 @@
+.container.center
+  %h1
+    = @post.title
+  = image_tag @post.image_url(:large)
+  %p= @post.body
+  %p
+    = "Number of likes: #{@post.likes.count}"
+    %button.btn.btn-outline-secondary{:type => "button"}
+      - if Like.find_by(user: current_user, post: @post).present?
+        = link_to "Unlike", user_post_like_path(@user, @post), method: :delete
+      - else
+        = link_to "Like", user_post_likes_path(@user, @post), method: :post
+    - if current_user == @user
+      - if policy(@post).update?
+        %button.btn.btn-outline-secondary{:type => "button"}
+          = link_to "Edit", edit_user_post_path(current_user, @post)
+        %button.btn.btn-outline-danger{:type => "button"}
+          = link_to "Delete post", user_post_path(current_user, @post), method: :delete, |
+            data: { confirm: 'Are you sure?' }                                           |
+  = render 'comments/index'
+  = render 'comments/form', user: @user, post: @post, comment: @comment

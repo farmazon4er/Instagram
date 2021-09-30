@@ -1,0 +1,4 @@
+%h1 Edit Post
+= render 'form', user: @user, post: @post
+%p{:style => "text-align: center"}= link_to 'Back', user_post_path(@user, @post)
+
