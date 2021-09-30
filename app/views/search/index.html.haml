@@ -1,0 +1,9 @@
+%h1 User list
+.container.my-5
+  .row
+    - @users.each do |user|
+      .col-md-2.center
+        .avatar
+          = image_tag user.image_url(:small)
+        %p
+          = link_to "#{user.name}", user_path(user)
