@@ -1,0 +1,4 @@
+.new-post
+  %h1 New Post
+  = render 'posts/form', user: @user, post: @post
+  = link_to 'back', user_path(@user, @post)

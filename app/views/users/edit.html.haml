@@ -1,0 +1,24 @@
+.user-edit
+  %h1 Edit user info
+  = form_with(model: @user, local: true) do |form|
+    - if @user.errors.any?
+      #error_explanation
+        %h2
+          = pluralize(post.errors.count, 'error')
+          prohibited this post from being saved:
+        %ul
+          - @user.errors.full_messages.each do |message|
+            %li= message
+    .field
+      = form.label :name
+      = form.text_area :name
+    .field
+      = form.label :bio
+      = form.text_area :bio
+    .field
+      = form.label :avatar
+      = form.hidden_field :image, value: @user.cached_image_data
+      = form.file_field :image
+    %br/
+    .actions
+      = form.submit

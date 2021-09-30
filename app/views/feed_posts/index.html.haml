@@ -1,0 +1,15 @@
+%h1 Feed Posts
+.container.my-5
+  .row
+    - if !@posts.nil?
+      - @posts.each do |post|
+        .col-md-4
+          %h2= post.title
+          = image_tag post.image_url(:medium)
+          %p= link_to(post.user.name, user_path(post.user))
+          %p= "Body: #{post.body}"
+          %p
+            = "Like: #{post.likes.count}"
+          = link_to "Show post", user_post_path(post.user, post)
+    - else
+      = "Not feed post yet"

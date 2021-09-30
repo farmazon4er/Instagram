@@ -1,0 +1,10 @@
+%h1 Followings
+.container.my-5
+  .row
+    - @followings.each do |user|
+      .col-md-2.center
+        .avatar
+          = image_tag user.image_url(:small)
+        %p
+          = link_to "#{user.name}", user_path(user)
+%p{:style => "text-align: center"}= link_to "Back", user_path(@user)
