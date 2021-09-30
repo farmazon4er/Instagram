@@ -34,6 +34,7 @@ gem 'haml'
 gem "haml-rails"
 gem 'shrine', '~> 3.0'
 gem 'mini_magick'
+gem 'pg_search'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 

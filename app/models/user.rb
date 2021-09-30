@@ -6,6 +6,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   include ImageUploader::Attachment.new(:image)
 
+  include PgSearch::Model
+  pg_search_scope :search_by_user, against: :name
+
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
