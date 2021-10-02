@@ -35,10 +35,9 @@ gem "haml-rails"
 gem 'shrine', '~> 3.0'
 gem 'mini_magick'
 gem 'pg_search'
+gem 'kaminari'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
-
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -7,3 +7,4 @@
           = image_tag user.image_url(:small)
         %p
           = link_to "#{user.name}", user_path(user)
+.center= paginate @users
