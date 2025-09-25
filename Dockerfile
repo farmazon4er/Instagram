@@ -22,6 +22,8 @@ RUN apt-get clean && apt-get update --fix-missing -qq \
     libgcrypt20-dev \
     python3 \
     postgresql-client \
+    imagemagick \
+    libvips \
     && npm install -g yarn \
     && rm -rf /var/lib/apt/lists/*
 
