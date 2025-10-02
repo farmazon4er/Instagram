@@ -1,8 +1,7 @@
 name: RSPEC
 on:
   push:
-    branches:
-      - main
+    branches: '**'
   pull_request:
 
 jobs:
@@ -36,7 +35,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libpq-dev nodejs npm yarn
+          sudo apt-get install -y libpq-dev nodejs npm yarn imagemagick libvips
           yarn install
           bundle install
 
