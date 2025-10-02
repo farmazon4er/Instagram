@@ -1,8 +1,7 @@
 name: RSPEC
 on:
   push:
-    branches:
-      - main
+    branches: '**'
   pull_request:
 
 jobs:
