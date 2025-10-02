@@ -32,15 +32,16 @@ RUN gem install bundler -v 2.1.4
 
 WORKDIR /app
 
-# Копируем Gemfile и ставим гемы
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
+COPY package.json yarn.lock ./
+RUN yarn install --check-files
+
+COPY . .
+
 RUN bundle exec rails webpacker:install \
  && bundle exec rails webpacker:compile
-
-# Копируем код
-COPY . .
 
 # Entrypoint: ждём Postgres и запускаем Rails
 RUN echo '#!/bin/bash\n\
@@ -57,5 +58,4 @@ ENTRYPOINT ["/usr/bin/entrypoint.sh"]
 
 EXPOSE 3000
 
-CMD ["bash", "-c", "bundle exec rails webpacker:compile && bundle exec rails server -b 0.0.0.0 -p 3000"]
-
+CMD ["bash", "-c", "bundle exec rails server -b 0.0.0.0 -p 3000"]
